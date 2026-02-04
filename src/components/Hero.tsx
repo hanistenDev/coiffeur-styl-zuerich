@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 import { MapPin, Star } from "lucide-react";
 import heroImage from "@/assets/hero-barber.jpg";
 
+const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
+
 const Hero = () => {
-  const BOOKING_URL = "#"; // Replace with Fresha or Appointme link
   const MAPS_URL = "https://www.google.com/maps/search/Coiffeur+Styl+Z%C3%BCrich+Wollishofen";
 
   return (
@@ -60,7 +61,12 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
-            <a href={BOOKING_URL} className="btn-hero-primary text-base md:text-lg">
+            <a 
+              href={BOOKING_URL} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="btn-hero-primary text-base md:text-lg"
+            >
               Termin buchen
             </a>
             <a
