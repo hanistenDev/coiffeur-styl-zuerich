@@ -1,11 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
+
 const FinalCTA = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const BOOKING_URL = "#"; // Replace with Fresha or Appointme link
 
   return (
     <section
@@ -54,6 +54,8 @@ const FinalCTA = () => {
         >
           <a
             href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-hero-primary text-lg md:text-xl px-12 py-5"
           >
             Termin buchen
