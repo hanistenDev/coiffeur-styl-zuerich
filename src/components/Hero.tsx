@@ -17,9 +17,9 @@ const Hero = () => {
         <img
           src={heroImage}
           alt="Coiffeur Styl Barbershop"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-[70%_center]"
         />
-        <div className="absolute inset-0 gradient-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
       </div>
 
       {/* Content */}
