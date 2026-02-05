@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
-import { MapPin, Star } from "lucide-react";
+ import { MapPin, Star } from "lucide-react";
+ 
+ const MAPS_URL = "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlsWg8iDWNvaWZmZXVyIHN0eWySARJ1bmlzZXhfaGFpcmRyZXNzZXKaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUnljbkV0V1hGblJSQULgAQD6AQQIABA0!16s%2Fg%2F11j7y0nbb2";
+ 
+ const openExternal = (url: string) => (e: React.MouseEvent) => {
+   e.preventDefault();
+   window.open(url, "_blank", "noopener,noreferrer");
+ };
 import heroImage from "@/assets/hero-barber.jpg";
-
-const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
 
 const Hero = () => {
   return (
@@ -76,9 +81,10 @@ const Hero = () => {
               Termin buchen
             </a>
             <a
-               href="https://maps.app.goo.gl/9r2xNvhnCHRex2g86"
+               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
+               onClick={openExternal(MAPS_URL)}
               className="btn-hero-secondary text-base md:text-lg"
             >
               <MapPin className="w-5 h-5 mr-2" />
