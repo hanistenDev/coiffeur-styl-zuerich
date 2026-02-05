@@ -2,8 +2,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
-const MAPS_URL = "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlskgESdW5pc2V4X2hhaXJkcmVzc2Vy4AEA!16s%2Fg%2F11j7y0nbb2?hl=de";
- const MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2703.8!2d8.5299051!3d47.3379724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479009c1dd7f9079%3A0x438677cbbf4b98de!2sCoiffeur%20Styl!5e0!3m2!1sde!2sch!4v1707145200000";
+const MAPS_URL =
+  "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlskgESdW5pc2V4X2hhaXJkcmVzc2Vy4AEA!16s%2Fg%2F11j7y0nbb2?hl=de";
+const MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2703.8!2d8.5299051!3d47.3379724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479009c1dd7f9079%3A0x438677cbbf4b98de!2sCoiffeur%20Styl!5e0!3m2!1sde!2sch!4v1707145200000";
 
 const Contact = () => {
   const ref = useRef(null);
@@ -37,9 +39,7 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20"
         >
-          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">
-            Besuche uns
-          </p>
+          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">Besuche uns</p>
           <h2 className="section-heading">
             Standort & <span className="text-gold">Kontakt</span>
           </h2>
@@ -86,9 +86,7 @@ const Contact = () => {
                     <item.icon className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-display text-xl text-gold mb-2">
-                      {item.title}
-                    </h3>
+                    <h3 className="font-display text-xl text-gold mb-2">{item.title}</h3>
                     {item.lines.map((line, i) => (
                       <p key={i} className="text-foreground/80 font-light">
                         {line}
@@ -123,8 +121,8 @@ const Contact = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 className="pt-6"
               >
-               <a
-                   href="https://www.instagram.com/coiffeur.styl/"
+                <a
+                  href="https://www.instagram.com/coiffeur.styl/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 text-foreground/70 hover:text-gold transition-colors duration-300"
