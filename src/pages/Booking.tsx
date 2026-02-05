@@ -75,8 +75,8 @@ const barbers = [
  
    const canProceed = () => {
      switch (step) {
-       case 1: return selectedService !== null;
-      case 2: return selectedBarber !== null;
+      case 1: return selectedBarber !== null;
+      case 2: return selectedService !== null;
       case 3: return selectedDate !== null && selectedTime !== null;
       case 4: return formData.firstName && formData.lastName && formData.phone && formData.email;
       case 5: return selectedPayment !== null;
@@ -121,36 +121,33 @@ const barbers = [
        {/* Content */}
        <main className="max-w-3xl mx-auto px-6 py-8">
          <AnimatePresence mode="wait">
-           {/* Step 1: Service Selection */}
+            {/* Step 1: Barber Selection */}
            {step === 1 && (
              <motion.div key="step1" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
-               <h2 className="font-display text-2xl md:text-3xl font-semibold mb-2">Service wählen</h2>
-               <p className="text-muted-foreground mb-8">Wähle deinen gewünschten Service</p>
+                <h2 className="font-display text-2xl md:text-3xl font-semibold mb-2">Barber wählen</h2>
+                <p className="text-muted-foreground mb-8">Wähle deinen bevorzugten Barber</p>
                
                <div className="space-y-4">
-                 {services.map((service) => (
+                  {barbers.map((barber) => (
                    <button
-                     key={service.id}
-                     onClick={() => setSelectedService(service)}
+                      key={barber.id}
+                      onClick={() => setSelectedBarber(barber)}
                      className={`w-full p-6 rounded-lg border transition-all duration-300 text-left flex items-center gap-4 ${
-                       selectedService?.id === service.id
+                        selectedBarber?.id === barber.id
                          ? "border-gold bg-gold/10"
                          : "border-border hover:border-gold/50 bg-card"
                      }`}
                    >
-                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                       selectedService?.id === service.id ? "bg-gold text-background" : "bg-muted text-gold"
+                      <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
+                        selectedBarber?.id === barber.id ? "bg-gold text-background" : "bg-muted text-gold"
                      }`}>
-                       <service.icon className="w-6 h-6" />
+                        <User className="w-7 h-7" />
                      </div>
                      <div className="flex-1">
-                       <h3 className="font-display text-lg font-medium">{service.name}</h3>
-                       <p className="text-muted-foreground text-sm flex items-center gap-2">
-                         <Clock className="w-4 h-4" /> {service.duration}
-                       </p>
+                        <h3 className="font-display text-xl font-semibold">{barber.name}</h3>
+                        <p className="text-muted-foreground text-sm">{barber.specialty}</p>
                      </div>
-                     <div className="text-gold font-semibold">{service.price}</div>
-                     {selectedService?.id === service.id && (
+                      {selectedBarber?.id === barber.id && (
                        <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center">
                          <Check className="w-4 h-4 text-background" />
                        </div>
@@ -161,33 +158,36 @@ const barbers = [
              </motion.div>
            )}
  
-            {/* Step 2: Barber Selection */}
+            {/* Step 2: Service Selection */}
            {step === 2 && (
              <motion.div key="step2" variants={stepVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
-                <h2 className="font-display text-2xl md:text-3xl font-semibold mb-2">Barber wählen</h2>
-                <p className="text-muted-foreground mb-8">Wähle deinen bevorzugten Barber</p>
+                <h2 className="font-display text-2xl md:text-3xl font-semibold mb-2">Service wählen</h2>
+                <p className="text-muted-foreground mb-8">Wähle deinen gewünschten Service</p>
                 
                 <div className="space-y-4">
-                  {barbers.map((barber) => (
+                  {services.map((service) => (
                     <button
-                      key={barber.id}
-                      onClick={() => setSelectedBarber(barber)}
+                      key={service.id}
+                      onClick={() => setSelectedService(service)}
                       className={`w-full p-6 rounded-lg border transition-all duration-300 text-left flex items-center gap-4 ${
-                        selectedBarber?.id === barber.id
+                        selectedService?.id === service.id
                           ? "border-gold bg-gold/10"
                           : "border-border hover:border-gold/50 bg-card"
                       }`}
                     >
-                      <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
-                        selectedBarber?.id === barber.id ? "bg-gold text-background" : "bg-muted text-gold"
+                      <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                        selectedService?.id === service.id ? "bg-gold text-background" : "bg-muted text-gold"
                       }`}>
-                        <User className="w-7 h-7" />
+                        <service.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-display text-xl font-semibold">{barber.name}</h3>
-                        <p className="text-muted-foreground text-sm">{barber.specialty}</p>
+                        <h3 className="font-display text-lg font-medium">{service.name}</h3>
+                        <p className="text-muted-foreground text-sm flex items-center gap-2">
+                          <Clock className="w-4 h-4" /> {service.duration}
+                        </p>
                       </div>
-                      {selectedBarber?.id === barber.id && (
+                      <div className="text-gold font-semibold">{service.price}</div>
+                      {selectedService?.id === service.id && (
                         <div className="w-6 h-6 rounded-full bg-gold flex items-center justify-center">
                           <Check className="w-4 h-4 text-background" />
                         </div>
