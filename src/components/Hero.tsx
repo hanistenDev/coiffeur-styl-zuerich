@@ -3,7 +3,6 @@ import { MapPin, Star } from "lucide-react";
 import heroImage from "@/assets/hero-barber.jpg";
 
 const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
-const MAPS_URL_MOBILE = "https://maps.app.goo.gl/9r2xNvhnCHRex2g86";
 
 const Hero = () => {
   return (
@@ -70,16 +69,14 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
-            <a 
-              href={BOOKING_URL} 
-              target="_blank" 
-              rel="noopener noreferrer"
+             <a
+               href="/booking"
               className="btn-hero-primary text-base md:text-lg"
             >
               Termin buchen
             </a>
             <a
-              href={MAPS_URL_MOBILE}
+               href="https://maps.app.goo.gl/9r2xNvhnCHRex2g86"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-hero-secondary text-base md:text-lg"
