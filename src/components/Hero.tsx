@@ -3,10 +3,9 @@ import { MapPin, Star } from "lucide-react";
 import heroImage from "@/assets/hero-barber.jpg";
 
 const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
+const MAPS_URL_MOBILE = "https://maps.app.goo.gl/9r2xNvhnCHRex2g86";
 
 const Hero = () => {
-  const MAPS_URL = "https://www.google.com/maps/search/Coiffeur+Styl+Z%C3%BCrich+Wollishofen";
-
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-start overflow-hidden">
       {/* Background Image */}
@@ -54,11 +53,21 @@ const Hero = () => {
             Schnell. Sauber. Ohne Stress.
           </motion.p>
 
+          {/* Slogan */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-lg md:text-xl text-gold/90 font-display italic mb-10"
+          >
+            „Schöner gehen als kommen"
+          </motion.p>
+
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 mb-16"
           >
             <a 
@@ -70,7 +79,7 @@ const Hero = () => {
               Termin buchen
             </a>
             <a
-              href={MAPS_URL}
+              href={MAPS_URL_MOBILE}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-hero-secondary text-base md:text-lg"
@@ -84,7 +93,7 @@ const Hero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
             className="flex flex-wrap items-center gap-4 md:gap-6 text-sm md:text-base text-foreground/70"
           >
             <div className="flex items-center gap-2">

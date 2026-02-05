@@ -2,6 +2,9 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
+const MAPS_URL = "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlskgESdW5pc2V4X2hhaXJkcmVzc2Vy4AEA!16s%2Fg%2F11j7y0nbb2?hl=de";
+const MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216.0!2d8.5299051!3d47.3379724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479009c1dd7f9079%3A0x438677cbbf4b98de!2sCoiffeur%20Styl!5e0!3m2!1sde!2sch!4v1234567890";
+
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -10,17 +13,17 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Adresse",
-      lines: ["Albisstrasse 123", "8038 Zürich Wollishofen"],
+      lines: ["Albisstrasse 110", "8038 Zürich Wollishofen"],
     },
     {
       icon: Phone,
       title: "Kontakt",
-      lines: ["+41 44 123 45 67", "info@coiffeur-styl.ch"],
+      lines: ["044 482 02 91"],
     },
     {
       icon: Clock,
       title: "Öffnungszeiten",
-      lines: ["Di - Fr: 09:00 - 19:00", "Sa: 09:00 - 17:00"],
+      lines: ["Mo – Fr: 09:00 – 19:00", "Sa: 08:00 – 18:00"],
     },
   ];
 
@@ -51,7 +54,7 @@ const Contact = () => {
             className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-sm overflow-hidden border border-border"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2702.1234567890!2d8.5237!3d47.3404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDIwJzI1LjQiTiA4wrAzMScyNS4zIkU!5e0!3m2!1sde!2sch!4v1234567890"
+              src={MAPS_EMBED_URL}
               width="100%"
               height="100%"
               style={{ border: 0, filter: "grayscale(100%) contrast(1.2) invert(0.92)" }}
@@ -95,11 +98,29 @@ const Contact = () => {
                 </motion.div>
               ))}
 
-              {/* Social */}
+              {/* Route Button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.7 }}
+                className="pt-4"
+              >
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 border border-gold/30 rounded-sm text-gold hover:bg-gold hover:text-background transition-colors duration-300"
+                >
+                  <MapPin className="w-5 h-5" />
+                  <span className="font-medium">Route anzeigen</span>
+                </a>
+              </motion.div>
+
+              {/* Social */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.8 }}
                 className="pt-6"
               >
                 <a
