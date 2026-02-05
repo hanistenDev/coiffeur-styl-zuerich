@@ -15,7 +15,7 @@ import { ArrowLeft, Check, Clock, Scissors, Sparkles, CreditCard, Smartphone, Ba
  
 // Barbers
 const barbers = [
-  { id: 1, name: "Ahmed", specialty: "Fade & Styling Experte" },
+  { id: 1, name: "Ahmad", specialty: "Fade & Styling Experte" },
   { id: 2, name: "Musa", specialty: "Klassische Haarschnitte" },
   { id: 3, name: "Rodi", specialty: "Bartpflege Spezialist" },
 ];
