@@ -52,10 +52,8 @@ const FinalCTA = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+           <a
+             href="/booking"
             className="btn-hero-primary text-lg md:text-xl px-12 py-5"
           >
             Termin buchen

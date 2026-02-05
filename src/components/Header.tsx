@@ -51,9 +51,7 @@ const Header = () => {
               </a>
             ))}
             <a
-              href="https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw"
-              target="_blank"
-              rel="noopener noreferrer"
+               href="/booking"
               className="btn-hero-primary text-sm px-6 py-2.5"
             >
               Termin buchen
@@ -93,9 +91,7 @@ const Header = () => {
                 </a>
               ))}
               <a
-                href="https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw"
-                target="_blank"
-                rel="noopener noreferrer"
+                 href="/booking"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="btn-hero-primary text-sm px-8 py-3 mt-2"
               >
