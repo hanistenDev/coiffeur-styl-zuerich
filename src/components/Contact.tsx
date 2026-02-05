@@ -1,17 +1,11 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Phone, Clock, Instagram, ExternalLink } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram } from "lucide-react";
 
-// Full Google Maps place URL for reliable external opening
-const MAPS_URL =
-  "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlsWg8iDWNvaWZmZXVyIHN0eWySARJ1bmlzZXhfaGFpcmRyZXNzZXKaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUnljbkV0V1hGblJSQULgAQD6AQQIABA0!16s%2Fg%2F11j7y0nbb2?hl=de&entry=ttu&g_ep=EgoyMDI2MDIwMS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D";
+// Google Maps URLs
+const MAPS_URL = "https://maps.app.goo.gl/9r2xNvhnCHRex2g86";
+const MAPS_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d691.4878!2d8.5297!3d47.3379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479009c1dd7f9079%3A0x438677cbbf4b98de!2sCoiffeur%20Styl!5e0!3m2!1sde!2sch!4v1707000000000!5m2!1sde!2sch";
 const INSTAGRAM_URL = "https://www.instagram.com/coiffeur.styl/";
-
-// Force external link to open in new tab, bypassing iframe restrictions
-const openExternal = (url: string) => (e: React.MouseEvent) => {
-  e.preventDefault();
-  window.open(url, "_blank", "noopener,noreferrer");
-};
 
 const Contact = () => {
   const ref = useRef(null);
@@ -52,41 +46,24 @@ const Contact = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Map Static Card - Links to Google Maps */}
+          {/* Embedded Google Maps */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-sm overflow-hidden border border-border bg-card"
           >
-            <a
-              href={MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={openExternal(MAPS_URL)}
-              className="block w-full h-full relative group"
-            >
-              {/* Static map background with styling */}
-              <div className="absolute inset-0 bg-gradient-to-br from-card via-muted to-card" />
-
-              {/* Map pin and address display */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                <div className="w-20 h-20 rounded-full border-2 border-gold/40 flex items-center justify-center mb-6 group-hover:border-gold transition-colors duration-300">
-                  <MapPin className="w-10 h-10 text-gold" />
-                </div>
-                <h3 className="font-display text-2xl text-foreground mb-3">Coiffeur Styl</h3>
-                <p className="text-foreground/70 mb-1">Albisstrasse 110</p>
-                <p className="text-foreground/70 mb-6">8038 Zürich Wollishofen</p>
-                <div className="flex items-center gap-2 text-gold group-hover:text-gold/80 transition-colors">
-                  <span className="font-medium">Auf Google Maps öffnen</span>
-                  <ExternalLink className="w-4 h-4" />
-                </div>
-              </div>
-
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-            <div className="absolute inset-0 pointer-events-none border border-gold/20 rounded-sm" />
+            <iframe
+              src={MAPS_EMBED_URL}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Coiffeur Styl Standort"
+              className="w-full h-full"
+            />
           </motion.div>
 
           {/* Contact Info */}
@@ -130,7 +107,6 @@ const Contact = () => {
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={openExternal(MAPS_URL)}
                   className="inline-flex items-center gap-3 px-6 py-3 border border-gold/30 rounded-sm text-gold hover:bg-gold hover:text-background transition-colors duration-300"
                 >
                   <MapPin className="w-5 h-5" />
@@ -149,7 +125,6 @@ const Contact = () => {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={openExternal(INSTAGRAM_URL)}
                   className="inline-flex items-center gap-3 text-foreground/70 hover:text-gold transition-colors duration-300"
                 >
                   <Instagram className="w-6 h-6" />
