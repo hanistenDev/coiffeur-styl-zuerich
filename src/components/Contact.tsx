@@ -62,7 +62,7 @@ const Contact = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Coiffeur Styl Standort"
-              className="w-full h-full"
+              className="w-full h-full grayscale invert contrast-90 brightness-95"
             />
           </motion.div>
 
