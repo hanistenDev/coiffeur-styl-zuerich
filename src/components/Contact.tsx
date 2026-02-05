@@ -2,9 +2,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Phone, Clock, Instagram, ExternalLink } from "lucide-react";
 
-// Short link for mobile-friendly route access
-const MAPS_SHORT_URL = "https://maps.app.goo.gl/9r2xNvhnCHRex2g86";
-const INSTAGRAM_URL = "https://www.instagram.com/coiffeur.styl/";
+ // Full Google Maps place URL for reliable external opening
+ const MAPS_URL = "https://www.google.com/maps/place/Coiffeur+Styl/@47.3379193,8.5297084,61m/data=!3m1!1e3!4m10!1m2!2m1!1sCOiffeur+styl!3m6!1s0x479009c1dd7f9079:0x438677cbbf4b98de!8m2!3d47.3379724!4d8.5299051!15sCg1DT2lmZmV1ciBzdHlsWg8iDWNvaWZmZXVyIHN0eWySARJ1bmlzZXhfaGFpcmRyZXNzZXKaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUnljbkV0V1hGblJSQULgAQD6AQQIABA0!16s%2Fg%2F11j7y0nbb2";
+ const INSTAGRAM_URL = "https://www.instagram.com/coiffeur.styl/";
+ 
+ // Force external link to open in new tab, bypassing iframe restrictions
+ const openExternal = (url: string) => (e: React.MouseEvent) => {
+   e.preventDefault();
+   window.open(url, "_blank", "noopener,noreferrer");
+ };
 
 const Contact = () => {
   const ref = useRef(null);
@@ -55,9 +61,10 @@ const Contact = () => {
             className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-sm overflow-hidden border border-border bg-card"
           >
             <a
-              href={MAPS_SHORT_URL}
+               href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
+               onClick={openExternal(MAPS_URL)}
               className="block w-full h-full relative group"
             >
               {/* Static map background with styling */}
@@ -121,9 +128,10 @@ const Contact = () => {
                 className="pt-4"
               >
                 <a
-                  href={MAPS_SHORT_URL}
+                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                   onClick={openExternal(MAPS_URL)}
                   className="inline-flex items-center gap-3 px-6 py-3 border border-gold/30 rounded-sm text-gold hover:bg-gold hover:text-background transition-colors duration-300"
                 >
                   <MapPin className="w-5 h-5" />
@@ -142,6 +150,7 @@ const Contact = () => {
                   href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                   onClick={openExternal(INSTAGRAM_URL)}
                   className="inline-flex items-center gap-3 text-foreground/70 hover:text-gold transition-colors duration-300"
                 >
                   <Instagram className="w-6 h-6" />
