@@ -5,7 +5,7 @@ import { Star, MapPin, Calendar, CreditCard } from "lucide-react";
 const trustItems = [
   {
     icon: Star,
-    value: "4.9",
+    value: "5.0",
     label: "Google Bewertung",
   },
   {
@@ -31,37 +31,37 @@ const TrustSection = () => {
 
   return (
     <section ref={ref} className="py-16 md:py-20 bg-charcoal-light border-y border-border">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-8 sm:mb-10"
         >
-          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-3">
+          <p className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm mb-3">
             Zürich Wollishofen
           </p>
-          <h2 className="font-display text-2xl md:text-3xl font-medium">
+          <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-medium">
             Warum <span className="text-gold">Coiffeur Styl</span>?
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
           {trustItems.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center p-6 rounded-sm bg-background/50 border border-border hover:border-gold/30 transition-colors duration-300"
+              className="text-center p-4 sm:p-6 rounded-sm bg-background/50 border border-border hover:border-gold/30 transition-colors duration-300"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold/10 mb-4">
-                <item.icon className="w-6 h-6 text-gold" />
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gold/10 mb-3 sm:mb-4">
+                <item.icon className="w-5 h-5 sm:w-6 sm:h-6 text-gold" />
               </div>
-              <p className="font-display text-2xl md:text-3xl text-gold font-semibold mb-1">
+              <p className="font-display text-xl sm:text-2xl md:text-3xl text-gold font-semibold mb-1">
                 {item.value}
               </p>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-xs sm:text-sm">
                 {item.label}
               </p>
             </motion.div>

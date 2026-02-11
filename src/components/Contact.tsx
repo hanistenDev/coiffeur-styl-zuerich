@@ -20,7 +20,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Kontakt",
-      lines: ["044 482 02 91"],
+      lines: ["+41 79 779 17 30"],
     },
     {
       icon: Clock,
@@ -39,19 +39,19 @@ const Contact = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20"
         >
-          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">Besuche uns</p>
+          <p className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">Besuche uns</p>
           <h2 className="section-heading">
             Standort & <span className="text-gold">Kontakt</span>
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20">
           {/* Embedded Google Maps */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="relative aspect-square lg:aspect-auto lg:h-full min-h-[400px] rounded-sm overflow-hidden border border-border bg-card"
+            className="relative aspect-[4/3] sm:aspect-square lg:aspect-auto lg:h-full min-h-[280px] sm:min-h-[400px] rounded-sm overflow-hidden border border-border bg-card"
           >
             <iframe
               src={MAPS_EMBED_URL}
@@ -73,7 +73,7 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="flex flex-col justify-center"
           >
-            <div className="space-y-10">
+            <div className="space-y-8 sm:space-y-10">
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.title}

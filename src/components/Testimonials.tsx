@@ -34,7 +34,7 @@ const Testimonials = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 md:mb-20"
         >
-          <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">
+          <p className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
             Kundenstimmen
           </p>
           <h2 className="section-heading">
@@ -43,32 +43,32 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="relative p-8 md:p-10 bg-card border border-border rounded-sm"
+              className="relative p-6 sm:p-8 md:p-10 bg-card border border-border rounded-sm"
             >
               {/* Quote icon */}
-              <Quote className="w-10 h-10 text-gold/30 mb-6" />
+              <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-gold/30 mb-4 sm:mb-6" />
 
               {/* Rating */}
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-4 sm:mb-6">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-gold fill-gold" />
+                  <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-gold fill-gold" />
                 ))}
               </div>
 
               {/* Text */}
-              <p className="text-foreground/90 font-light leading-relaxed mb-6 text-lg">
+              <p className="text-foreground/90 font-light leading-relaxed mb-4 sm:mb-6 text-base sm:text-lg">
                 "{testimonial.text}"
               </p>
 
               {/* Author */}
-              <p className="text-gold font-display text-lg">
+              <p className="text-gold font-display text-base sm:text-lg">
                 {testimonial.name}
               </p>
             </motion.div>

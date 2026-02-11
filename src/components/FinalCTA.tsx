@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-const BOOKING_URL = "https://www.fresha.com/a/coiffeur-styl-zuerich-seestrasse-1-6eyt8kxw";
+
 
 const FinalCTA = () => {
   const ref = useRef(null);
@@ -11,7 +11,7 @@ const FinalCTA = () => {
     <section
       id="booking"
       ref={ref}
-      className="relative py-24 md:py-40 px-6 md:px-12 overflow-hidden"
+      className="relative py-20 sm:py-24 md:py-40 px-4 sm:px-6 md:px-12 overflow-hidden"
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal-light via-background to-background" />
@@ -24,7 +24,7 @@ const FinalCTA = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-gold tracking-[0.3em] uppercase text-sm mb-6"
+          className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm mb-4 sm:mb-6"
         >
           Bereit für deinen neuen Look?
         </motion.p>
@@ -33,7 +33,7 @@ const FinalCTA = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="font-display text-4xl md:text-6xl lg:text-7xl font-semibold mb-6"
+          className="font-display text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold mb-4 sm:mb-6"
         >
           Jetzt <span className="text-gold">Termin</span> buchen
         </motion.h2>
@@ -42,7 +42,7 @@ const FinalCTA = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto"
+          className="text-base sm:text-xl text-muted-foreground font-light mb-8 sm:mb-10 max-w-2xl mx-auto"
         >
           Buche online in wenigen Sekunden – wir freuen uns auf dich.
         </motion.p>
@@ -53,7 +53,9 @@ const FinalCTA = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
            <a
-             href="/booking"
+             href="https://www.fresha.com/book-now/coiffeur-styl-kw6qvof5/services?lid=2880902&eid=5092150&share=true&pId=2785542"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-hero-primary text-lg md:text-xl px-12 py-5"
           >
             Termin buchen

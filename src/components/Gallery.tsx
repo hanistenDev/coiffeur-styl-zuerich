@@ -43,7 +43,7 @@
              transition={{ duration: 0.7 }}
              className="text-center mb-12 md:mb-16"
            >
-             <p className="text-gold tracking-[0.3em] uppercase text-sm mb-4">
+             <p className="text-gold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-xs sm:text-sm mb-4">
                Unsere Arbeit
              </p>
              <h2 className="section-heading">
@@ -52,7 +52,7 @@
            </motion.div>
  
            {/* Image Grid */}
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6">
              {images.map((image, index) => (
                <motion.div
                  key={index}
