@@ -50,12 +50,12 @@ const Footer = () => {
           <p className="text-muted-foreground/50 text-xs font-light">
             Website by{" "}
             <a
-              href="https://hanistendev.netlify.app/"
+              href="https://wistho.ch/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground/70 hover:text-gold transition-colors duration-300"
             >
-              Hanisten
+              Wistho
             </a>
           </p>
         </div>
